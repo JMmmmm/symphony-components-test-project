@@ -1,0 +1,30 @@
+{
+    "require": {
+        "symfony/http-kernel": "^5.1",
+        "symfony/http-foundation": "^5.1",
+        "symfony/routing": "^5.1",
+        "symfony/dependency-injection": "^5.1",
+        "doctrine/orm": "^2.7",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpmd/phpmd": "@stable",
+        "phpunit/phpunit": "^7.0",
+        "roave/better-reflection": "dev-master",
+        "squizlabs/php_codesniffer": "3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Acme\\": "src/",
+            "App\\Http\\": "http/",
+            "App\\Services\\": "services/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AppTest\\Acme\\": "test/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
