@@ -5,7 +5,7 @@ namespace App\Http\Controller\Order;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class OrderController
+class OrderCreationController
 {
     public function create(Request $request)
     {

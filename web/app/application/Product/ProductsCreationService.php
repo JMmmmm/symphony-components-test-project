@@ -7,6 +7,7 @@ use App\Application\User\UserInterface;
 use App\Domain\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 use Generator;
+use InvalidArgumentException;
 
 class ProductsCreationService
 {
@@ -36,12 +37,40 @@ class ProductsCreationService
      */
     public function create(Generator $productDTOS): void
     {
+        $productNames = [];
         foreach ($productDTOS as $productDTO) {
             $product = new Product($productDTO->getName(), $productDTO->getPrice(), $this->user->getId());
 
             $this->entityManager->persist($product);
+
+            $productNames[] = $productDTO->getName();
         }
 
+        $this->checkProductNamesExistence($productNames);
+
         $this->entityManager->flush();
+    }
+
+    /**
+     * @param array $productNames
+     */
+    private function checkProductNamesExistence(array $productNames): void
+    {
+        /** @var Product[]|null $existingProducts */
+        $existingProducts = $this->entityManager
+            ->getRepository(Product::class)
+            ->findBy(['name' => $productNames]);
+
+        if ($existingProducts === null) {
+            return;
+        }
+
+        $existingProductNames = [];
+        foreach ($existingProducts as $existingProduct) {
+            $existingProductNames[] = $existingProduct->getName();
+        }
+
+        $this->entityManager->clear();
+        throw new InvalidArgumentException('Next product names are existing: ' . implode(', ', $existingProductNames));
     }
 }

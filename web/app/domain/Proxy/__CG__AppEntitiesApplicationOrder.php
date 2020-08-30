@@ -66,10 +66,10 @@ class Order extends \App\Entities\Application\Order implements \Doctrine\ORM\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'id', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'status', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'totalAmountSum', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'products', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'userId', 'created', 'updated'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'id', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'billingNumber', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'status', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'totalAmountSum', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'products', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'userId', 'created', 'updated'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'id', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'status', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'totalAmountSum', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'products', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'userId', 'created', 'updated'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'id', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'billingNumber', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'status', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'totalAmountSum', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'products', '' . "\0" . 'App\\Entities\\Application\\Order' . "\0" . 'userId', 'created', 'updated'];
     }
 
     /**
@@ -262,6 +262,28 @@ class Order extends \App\Entities\Application\Order implements \Doctrine\ORM\Pro
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserId', [$userId]);
 
         return parent::setUserId($userId);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getBillingNumber(): string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBillingNumber', []);
+
+        return parent::getBillingNumber();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setBillingNumber(string $billingNumber): \App\Entities\Application\Order
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBillingNumber', [$billingNumber]);
+
+        return parent::setBillingNumber($billingNumber);
     }
 
     /**

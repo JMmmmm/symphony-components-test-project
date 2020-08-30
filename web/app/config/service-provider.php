@@ -3,7 +3,7 @@ declare(strict_types=1);
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use App\Application\User\UserInterface;
-use App\Http\Controller\Order\OrderController;
+use App\Http\Controller\Order\OrderCreationController;
 use App\Infrastructure\Doctrine\EntityManagerFactory;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\Reference;
@@ -25,7 +25,7 @@ return function(ContainerConfigurator $configurator) {
         ->synthetic();
 
     $services
-        ->set(OrderController::class, OrderController::class)
+        ->set(OrderCreationController::class, OrderCreationController::class)
         ->autowire()
         ->args([new Reference(EntityManagerInterface::class), new Reference(UserInterface::class)])
         ->public();

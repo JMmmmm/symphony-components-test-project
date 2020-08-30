@@ -17,7 +17,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @Entity
- * @Table(name="orders")
+ * @Table(name="orders", uniqueConstraints={@UniqueConstraint(name="billing_idx", columns={"billing_number"})})
  */
 class Order
 {
@@ -31,6 +31,12 @@ class Order
      * @GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * @var string
+     * @Column(name="billing_number", type="string", nullable=false, length=100)
+     */
+    private $billingNumber;
 
     /**
      * @var string
@@ -82,11 +88,12 @@ class Order
      * @param Product[] $products
      * @param int $userId
      */
-    public function __construct(float $totalAmountSum, array $products, int $userId)
+    public function __construct(float $totalAmountSum, array $products, int $userId, string $billingNumber)
     {
         $this->totalAmountSum = $totalAmountSum;
-        $this->products = new ArrayCollection($products);;
+        $this->products = new ArrayCollection($products);
         $this->userId = $userId;
+        $this->billingNumber = $billingNumber;
         $this->created = new DateTime();
         $this->updated = new DateTime();
     }
@@ -160,6 +167,24 @@ class Order
     public function setUserId(int $userId): self
     {
         $this->userId = $userId;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBillingNumber(): string
+    {
+        return $this->billingNumber;
+    }
+
+    /**
+     * @param string $billingNumber
+     * @return self
+     */
+    public function setBillingNumber(string $billingNumber): self
+    {
+        $this->billingNumber = $billingNumber;
         return $this;
     }
 
