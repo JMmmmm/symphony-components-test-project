@@ -11,7 +11,7 @@ use DateTime;
 
 /**
  * @Entity
- * @Table(name="products")
+ * @Table(name="products", uniqueConstraints={@UniqueConstraint(name="name_idx", columns={"name"})})
  */
 class Product
 {
@@ -26,7 +26,7 @@ class Product
     /**
      * @var string
      *
-     * @Column(type="text", nullable=false)
+     * @Column(type="string", nullable=false, length=100)
      */
     private $name;
 
@@ -56,7 +56,6 @@ class Product
 
     /**
      * Product constructor.
-     * @param int $id
      * @param string $name
      * @param float $price
      * @param int $userId

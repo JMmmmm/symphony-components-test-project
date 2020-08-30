@@ -17,12 +17,12 @@ class ProductDTOsAssembler
         foreach ($products as $key => $product) {
             $productName = $product['name'] ?? null;
             if (!is_string($productName)) {
-                throw new InvalidArgumentException('Incorrect name in product #' . $key);
+                throw new InvalidArgumentException('Incorrect name of product #' . $key);
             }
 
             $productPrice = $product['price'] ?? null;
             if (!is_numeric($productPrice)) {
-                throw new InvalidArgumentException('Incorrect price in product #' . $key);
+                throw new InvalidArgumentException('Incorrect price of product #' . $key);
             }
 
             yield new ProductDTO($productName, (float)$productPrice);

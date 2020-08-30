@@ -17,21 +17,35 @@ class ProductsCreationController
 {
     use RequestValidator;
 
+    /**
+     * @var ProductDTOsAssembler
+     */
     private ProductDTOsAssembler $productDTOsAssembler;
 
+    /**
+     * @var ProductsCreationService
+     */
     private ProductsCreationService $productsCreationService;
 
+    /**
+     * ProductsCreationController constructor.
+     * @param ProductDTOsAssembler $productDTOsAssembler
+     * @param ProductsCreationService $productsCreationService
+     */
     public function __construct(ProductDTOsAssembler $productDTOsAssembler, ProductsCreationService $productsCreationService)
     {
         $this->productDTOsAssembler = $productDTOsAssembler;
         $this->productsCreationService = $productsCreationService;
     }
 
-
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function create(Request $request): JsonResponse
     {
         $constraints = new Collection([
-            'products' => [new NotNull(), new Count(['min' => 2, 'max' => 5])]
+            'products' => [new NotNull(), new Count(['min' => 20, 'max' => 20])]
         ]);
 
         try {
@@ -41,7 +55,7 @@ class ProductsCreationController
         } catch (InvalidArgumentException $exception) {
             return new JsonResponse($exception->getMessage(), Response::HTTP_UNPROCESSABLE_ENTITY);
         } catch (\Throwable $exception) {
-            return new JsonResponse($exception->getMessage(), $exception->getCode());
+            return new JsonResponse($exception->getMessage(), Response::HTTP_SERVICE_UNAVAILABLE);
         }
 
         return new JsonResponse('success', Response::HTTP_OK);

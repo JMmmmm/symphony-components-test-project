@@ -4,6 +4,7 @@ namespace App\Application\Product;
 
 use App\Application\Product\DTO\ProductDTO;
 use App\Application\User\UserInterface;
+use App\Domain\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 use Generator;
 
@@ -31,14 +32,16 @@ class ProductsCreationService
     }
 
     /**
-     * @param ProductDTO[]|Generator $productDTOS
+     * @param Generator|ProductDTO[] $productDTOS
      */
     public function create(Generator $productDTOS): void
     {
         foreach ($productDTOS as $productDTO) {
-            $test = 1;
+            $product = new Product($productDTO->getName(), $productDTO->getPrice(), $this->user->getId());
 
-            $bot = 2;
+            $this->entityManager->persist($product);
         }
+
+        $this->entityManager->flush();
     }
 }
