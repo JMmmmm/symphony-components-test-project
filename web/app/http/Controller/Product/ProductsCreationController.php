@@ -5,7 +5,6 @@ namespace App\Http\Controller\Product;
 use App\Application\Product\ProductsCreationService;
 use App\Http\Assembler\Product\ProductDTOsAssembler;
 use App\Http\Validation\RequestValidator;
-use InvalidArgumentException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,16 +47,11 @@ class ProductsCreationController
             'products' => [new NotNull(), new Count(['min' => 20, 'max' => 20])]
         ]);
 
-        try {
-            $this->validate($request, $constraints);
-            $productsDTOs = $this->productDTOsAssembler->create($request->get('products'));
-            $this->productsCreationService->create($productsDTOs);
-        } catch (InvalidArgumentException $exception) {
-            return new JsonResponse($exception->getMessage(), Response::HTTP_UNPROCESSABLE_ENTITY);
-        } catch (\Throwable $exception) {
-            return new JsonResponse($exception->getMessage(), Response::HTTP_SERVICE_UNAVAILABLE);
-        }
+        $this->validate($request, $constraints);
 
-        return new JsonResponse('success', Response::HTTP_OK);
+        $productsDTOs = $this->productDTOsAssembler->create($request->get('products'));
+        $this->productsCreationService->create($productsDTOs);
+
+        return new JsonResponse(['success' => true], Response::HTTP_OK);
     }
 }

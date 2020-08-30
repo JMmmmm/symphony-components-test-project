@@ -56,12 +56,12 @@ class ProductsCreationService
      */
     private function checkProductNamesExistence(array $productNames): void
     {
-        /** @var Product[]|null $existingProducts */
+        /** @var Product[] $existingProducts */
         $existingProducts = $this->entityManager
             ->getRepository(Product::class)
             ->findBy(['name' => $productNames]);
 
-        if ($existingProducts === null) {
+        if (!$existingProducts) {
             return;
         }
 

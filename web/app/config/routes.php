@@ -15,5 +15,5 @@ return function (RoutingConfigurator $routes) {
 
     $routes->add('order_creation', '/order/create')
         ->controller([OrderCreationController::class, 'create'])
-        ->methods(['GET']);
+        ->methods(['POST']);
 };

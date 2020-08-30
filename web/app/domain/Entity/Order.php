@@ -1,8 +1,7 @@
 <?php
 declare(strict_types=1);
-namespace App\Entities\Application;
+namespace App\Domain\Entity;
 
-use App\Domain\Entity\Product;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
@@ -30,26 +29,26 @@ class Order
      * @Id
      * @GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string
      * @Column(name="billing_number", type="string", nullable=false, length=100)
      */
-    private $billingNumber;
+    private string $billingNumber;
 
     /**
      * @var string
-     * @Column(name="status", type="text", nullable=false, options={"default":"new"})
+     * @Column(name="status", type="string", nullable=false, options={"default" : "new"})
      */
-    private $status;
+    private string $status = self::STATUS_NEW;
 
     /**
      * @var float
      *
      * @Column(name="total_amount_sum", type="float", nullable=false)
      */
-    private $totalAmountSum;
+    private float $totalAmountSum;
 
     /**
      * @var Collection|Product[]
@@ -66,27 +65,28 @@ class Order
      * @var int
      * @Column(name="user_id", type="integer", nullable=false)
      */
-    private $userId;
+    private int $userId;
 
     /**
      * @var DateTime
      *
      * @Column(name="created", type="datetime", nullable=false)
      */
-    protected $created;
+    protected DateTime $created;
 
     /**
      * @var DateTime
      *
      * @Column(name="updated", type="datetime", nullable=false)
      */
-    protected $updated;
+    protected DateTime $updated;
 
     /**
      * Order constructor.
      * @param float $totalAmountSum
      * @param Product[] $products
      * @param int $userId
+     * @param string $billingNumber
      */
     public function __construct(float $totalAmountSum, array $products, int $userId, string $billingNumber)
     {

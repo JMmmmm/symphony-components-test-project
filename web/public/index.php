@@ -4,6 +4,7 @@ include '../app/vendor/autoload.php';
 
 use App\Application\User\Admin;
 use App\Application\User\UserInterface;
+use App\Http\Middleware\ApiExceptionSubscriber;
 use Dotenv\Dotenv;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,6 +47,7 @@ $matcher = new UrlMatcher($routes, new RequestContext());
 
 $dispatcher = new EventDispatcher();
 $dispatcher->addSubscriber(new RouterListener($matcher, new RequestStack()));
+$dispatcher->addSubscriber(new ApiExceptionSubscriber());
 
 $controllerResolver = new ContainerControllerResolver($containerBuilder);
 $argumentValueResolvers = [

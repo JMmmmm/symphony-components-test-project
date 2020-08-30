@@ -21,46 +21,44 @@ class Product
      * @Id
      * @GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string
      *
      * @Column(type="string", nullable=false, length=100)
      */
-    private $name;
+    private string $name;
 
     /**
      * @var float
      * @Column(type="float", nullable=false)
      */
-    private $price;
+    private float $price;
 
     /**
      * @var int
      * @Column(name="user_id", type="integer", nullable=false)
      */
-    private $userId;
+    private int $userId;
 
     /**
      * @var DateTime
      * @Column(type="datetime", nullable=false)
      */
-    private $created;
+    private DateTime $created;
 
     /**
      * @var DateTime
      * @Column(type="datetime", nullable=false)
      */
-    private $updated;
+    private DateTime $updated;
 
     /**
      * Product constructor.
      * @param string $name
      * @param float $price
      * @param int $userId
-     * @param DateTime $created
-     * @param DateTime $updated
      */
     public function __construct(string $name, float $price, int $userId)
     {
