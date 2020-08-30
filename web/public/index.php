@@ -28,7 +28,7 @@ use Symfony\Component\Routing\Loader\PhpFileLoader as RoutePhpFileLoader;
 $dotenv = Dotenv::createImmutable('../');
 $dotenv->load();
 
-$configPath = '../app/config';
+$configPath = __DIR__ . '/../app/config';
 $configFileLocator = new FileLocator($configPath);
 
 $routeLoader = new RoutePhpFileLoader($configFileLocator);

@@ -4,17 +4,17 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use App\Application\User\UserInterface;
 use App\Http\Controller\Order\OrderController;
-use App\Http\Controller\Product\ProductsCreationController;
-use App\Application\TestService;
 use App\Infrastructure\Doctrine\EntityManagerFactory;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @param ContainerConfigurator $configurator
+ */
 return function(ContainerConfigurator $configurator) {
-    $services = $configurator->services();
+    $configurator->import('services/products_creation.php');
 
-    $services->set(Request::class, Request::class);
+    $services = $configurator->services();
 
     $services
         ->set(EntityManagerInterface::class)
@@ -24,16 +24,9 @@ return function(ContainerConfigurator $configurator) {
     $services->set(UserInterface::class)
         ->synthetic();
 
-    $services->set(TestService::class, TestService::class)->public();
-
-    $services
-        ->set(ProductsCreationController::class, ProductsCreationController::class)
-        ->args([service(TestService::class), service(EntityManagerInterface::class), service(UserInterface::class)])
-        ->public();
-
     $services
         ->set(OrderController::class, OrderController::class)
         ->autowire()
-        ->args([service(TestService::class), new Reference(EntityManagerInterface::class), new Reference(UserInterface::class)])
+        ->args([new Reference(EntityManagerInterface::class), new Reference(UserInterface::class)])
         ->public();
 };

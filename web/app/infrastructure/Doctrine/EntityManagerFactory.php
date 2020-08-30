@@ -6,10 +6,6 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMException;
 use Doctrine\ORM\Tools\Setup;
 
-/**
- * Class EntityManagerFactory
- * @package App\Infrastructure
- */
 class EntityManagerFactory
 {
     /**
@@ -24,7 +20,7 @@ class EntityManagerFactory
     public static function getInstance(): EntityManager
     {
         if (!static::$instance instanceof EntityManager) {
-            $paths = ['../../domain/Entities'];
+            $paths = [__DIR__ . '/../../domain/Entity'];
             $isDevMode = false;
             $dbParams = [
                 'driver'   => $_ENV['DB_DRIVER'],

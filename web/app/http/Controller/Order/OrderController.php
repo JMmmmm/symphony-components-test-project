@@ -2,14 +2,12 @@
 declare(strict_types=1);
 namespace App\Http\Controller\Order;
 
-
-use App\Application\TestService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class OrderController
 {
-    public function create(Request $request, TestService $testService)
+    public function create(Request $request)
     {
         $test = 2;
 

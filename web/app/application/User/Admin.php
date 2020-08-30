@@ -2,10 +2,6 @@
 declare(strict_types=1);
 namespace App\Application\User;
 
-/**
- * Class Admin
- * @package App\Application\User
- */
 class Admin implements UserInterface
 {
     private const DEFAULT_ID = 1;
