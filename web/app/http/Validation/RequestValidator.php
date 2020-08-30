@@ -4,13 +4,16 @@ namespace App\Http\Validation;
 
 use InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints\Collection;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validation;
 
 trait RequestValidator
 {
+    /**
+     * @param Request $request
+     * @param Collection $constraints
+     */
     public function validate(Request $request, Collection $constraints): void
     {
         $validator = Validation::createValidator();
