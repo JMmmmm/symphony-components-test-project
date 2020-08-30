@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use App\Http\Controller\Order\OrderCreationController;
+use App\Http\Controller\Order\OrderPaymentController;
 use App\Http\Controller\Product\ProductsCreationController;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
@@ -15,5 +16,9 @@ return function (RoutingConfigurator $routes) {
 
     $routes->add('order_creation', '/order/create')
         ->controller([OrderCreationController::class, 'create'])
+        ->methods(['POST']);
+
+    $routes->add('order_payment', '/order/pay')
+        ->controller([OrderPaymentController::class, 'pay'])
         ->methods(['POST']);
 };
