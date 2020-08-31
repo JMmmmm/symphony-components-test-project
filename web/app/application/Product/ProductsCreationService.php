@@ -69,8 +69,7 @@ class ProductsCreationService
         foreach ($existingProducts as $existingProduct) {
             $existingProductNames[] = $existingProduct->getName();
         }
-
-        $this->entityManager->clear();
+        
         throw new InvalidArgumentException('Next product names are existing: ' . implode(', ', $existingProductNames));
     }
 }
