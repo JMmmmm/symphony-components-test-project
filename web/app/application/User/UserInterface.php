@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace App\Application\User;
 
-Interface UserInterface
+interface UserInterface
 {
     /**
      * @return int

@@ -4,7 +4,7 @@ namespace App\Infrastructure\Payment\Provider;
 
 use App\Infrastructure\Payment\Provider\DTO\PaymentRequestProviderDTO;
 
-Interface ProviderPaymentServiceInterface
+interface ProviderPaymentServiceInterface
 {
     /**
      * @param PaymentRequestProviderDTO $paymentRequestProviderDTO

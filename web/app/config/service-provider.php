@@ -10,7 +10,7 @@ use GuzzleHttp\Client;
 /**
  * @param ContainerConfigurator $configurator
  */
-return function(ContainerConfigurator $configurator) {
+return function (ContainerConfigurator $configurator) {
     $configurator->import('services/products_creation.php');
     $configurator->import('services/order_creation.php');
     $configurator->import('services/order_payment.php');

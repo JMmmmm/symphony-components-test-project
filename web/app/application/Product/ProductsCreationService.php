@@ -69,7 +69,7 @@ class ProductsCreationService
         foreach ($existingProducts as $existingProduct) {
             $existingProductNames[] = $existingProduct->getName();
         }
-        
+
         throw new InvalidArgumentException('Next product names are existing: ' . implode(', ', $existingProductNames));
     }
 }

@@ -3,7 +3,6 @@ declare(strict_types=1);
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use App\Application\Order\OrderCreationService;
-use App\Application\Product\ProductsCreationService;
 use App\Application\User\UserInterface;
 use App\Http\Controller\Order\OrderCreationController;
 use Doctrine\ORM\EntityManagerInterface;
@@ -11,7 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 /**
  * @param ContainerConfigurator $configurator
  */
-return function(ContainerConfigurator $configurator) {
+return function (ContainerConfigurator $configurator) {
     $services = $configurator->services();
 
     $services
