@@ -1,0 +1,392 @@
+{
+	"variables": [],
+	"info": {
+		"name": "test-project",
+		"_postman_id": "e60c7cd0-b9a6-1256-f4d2-303dd69594a8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/products/create?XDEBUG_SESSION_START=IDEA_DEBUG",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8000/products/create?XDEBUG_SESSION_START=IDEA_DEBUG",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"create"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "IDEA_DEBUG",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "products[0][name]",
+							"value": "test1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[0][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[1][name]",
+							"value": "test2",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[1][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[2][name]",
+							"value": "test3",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[2][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[3][name]",
+							"value": "test4",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[3][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[4][name]",
+							"value": "test5",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[4][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[5][name]",
+							"value": "test6",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[5][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[6][name]",
+							"value": "test7",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[6][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[7][name]",
+							"value": "test8",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[7][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[8][name]",
+							"value": "test9",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[8][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[9][name]",
+							"value": "test10",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[9][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[10][name]",
+							"value": "test11",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[10][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[11][name]",
+							"value": "test12",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[11][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[12][name]",
+							"value": "test13",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[12][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[13][name]",
+							"value": "test14",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[13][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[14][name]",
+							"value": "test15",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[14][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[15][name]",
+							"value": "test16",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[15][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[16][name]",
+							"value": "test17",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[16][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[17][name]",
+							"value": "test18",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[17][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[18][name]",
+							"value": "test19",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[18][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[19][name]",
+							"value": "test20",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products[19][price]",
+							"value": "76993",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/order/create?XDEBUG_SESSION_START=IDEA_DEBUG&name=eee",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8000/order/create?XDEBUG_SESSION_START=IDEA_DEBUG&name=eee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"order",
+						"create"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "IDEA_DEBUG",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "name",
+							"value": "eee",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "products_ids[0]",
+							"value": "55",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products_ids[1]",
+							"value": "57",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "products_ids[2]",
+							"value": "60",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/order/pay?XDEBUG_SESSION_START=IDEA_DEBUG",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8000/order/pay?XDEBUG_SESSION_START=IDEA_DEBUG",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"order",
+						"pay"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION_START",
+							"value": "IDEA_DEBUG",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "billingNumber",
+							"value": "5f4bf70714cb1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "orderTotalAmountSum",
+							"value": "76993",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
